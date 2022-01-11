@@ -24,15 +24,8 @@ Estou aprendendo a \
 programar em Swift \
 nos próximos 100 dias!
 """
-/* Além disso, é possível exibir isso no console usando "\" no final de cada linha no editor de código.
-
- IMPORTANTE: Nunca quebre linhas ao exibir mensagens de erro. Isso dificultará a busca deles por outros programadores. */
  
  // ****************** 4. Doubles e Booleanos ******************
-/* Double: "double precision floating point number".
-   Para verificar o tipo de uma variável, utilize a função _type(of: <VariableName>)_.
-   O Swift, por segurança, não permite uma operação entre tipos diferentes, mesmo int e double. */
-
 var pi = 3.14159
 //print(type(of: pi))
 var number1 = 5.2
@@ -62,19 +55,107 @@ taylorRocks = false
    1. Swift não pode saber qual tipo usar
    2. Você precisa usar um tipo diferente por padrão
    3. Você ainda não vai atribuir um valor
- 
-   OBS: var str3 = "" ou var str3: String
  */
 
-var n: Int = 13
-n = n + 8
-print("O tipo de \(n) é: \n", type(of: n))
+// **************************** Arrays ****************************
+let john = "John Lennon"
+let paul = "Paul McCartney"
+let george = "George Harrison"
+let ringo = "Ringo Starr"
 
-// ****************** 8. Tipos simples: Sumário *******************
+let beatles = [john, paul, george, ringo]
+beatles[0]
+
+// Com Type annotations
+var cities: [String] = ["London", "Paris", "New York"]
+
+// ***************************** Sets *****************************
 /*
-   1. Use VAR para variáveis e LET para constantes
-   2. Duas aspas para strings simples ou três para quebras de linha
-   3. Int, Double ou Bool
-   4. Interpolaçnao de strings
-   5. Declaração explícita de tipo (pode ser uma questão de estilo em alguns casos
-*/
+ 1. Não são ordenáveis
+ 2. Não contém valores duplicados
+ 3. Não contém um índice
+ */
+let colors = Set(["red", "green", "blue"])
+let colors2 = Set(["red", "green", "blue", "red", "blue"]) // porém, não retorna um erro
+// Para buscar dados de forma mais rápida se sem tantas iterações, como se uma palavra existe em um dicionário, os sets são extremamente recomendados.
+
+// ***************************** Tuplas ***************************
+/*
+ 1. Armazenar vários valores em um único
+ 2. São imutáveis (sem add ou remove) e seus tipos também.
+ 3. Acessar valores pode ser feito por número ou nome
+ */
+var name = (first: "Taylor", last: "Swift") // Também pode ser constante (LET)
+name.0
+name.first = "Young"
+//print(name.0)
+
+// NOTA: É possível alterar o valor, mas não seu tipo. Isso resultará num erro.
+
+// Arrays vs sets vs tuples, como saber qual escolher?
+//https://www.hackingwithswift.com/quick-start/understanding-swift/when-should-you-use-an-array-a-set-or-a-tuple-in-swift
+
+// ************************** Dicionários *************************
+let heights = [
+    "Taylor Swift": 1.78,
+    "Ed Sheeran": 1.73
+]
+
+// Valores padrão do dicionário
+var favoriteIceCreamn = ["Charlotte", default: "Unknown"]
+
+// Outro exemplo válido
+let books = ["Austen": "Pride and Prejudice"]
+let dickens = books["Dickens", default: "Unknown"]
+
+// Ou
+let albums = ["Prince": "Purple Rain"]
+var beatles2 = albums["Beatles"]
+
+// ******************** Criando coleções vazias ********************
+// https://www.hackingwithswift.com/sixty/2/7/creating-empty-collections
+
+// ***************************** Enums ******************************
+// Permite nos escolher um nome apropriado/adequado/legal para um valor.
+
+let result = "failure"
+let result2 = "failed"
+let result3 = "fail"
+
+// Indicam sucesso ou falha, por exemplo:
+enum Result {
+    case success
+    case failure
+}
+// Exemplo de uso para esse caso:
+let result4 = Result.failure
+
+// Outro caso de uso interessante:
+// Direction -> north, south, east, and west
+// Usamos assim -> Direction.north
+
+// -----------------------------------------------------------------
+// Seus valores associados
+enum Activity {
+    case bored
+    case running(destination: String)
+    case talking(topic: String)
+    case singing(volume: Int)
+}
+
+let talking = Activity.talking(topic: "football")
+
+// Outro exemplo
+enum Weather {
+    case sunny
+    case windy(speed: Int)
+    case rainy(chance: Int, amount: Int)
+}
+
+// Valores brutos para Enum
+enum Planet: Int {
+    case mercury = 1 // Ao remover a atribuição, mercury começará em 0.
+    case venus
+    case earth
+    case mars
+}
