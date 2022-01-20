@@ -1,4 +1,4 @@
-## The 100 days of Swift
+## 100 days of Swift
 
 <img align="right" alt="Mona" height="300px" width="300px" src="https://octodex.github.com/images/tentocats.jpg" />
 
