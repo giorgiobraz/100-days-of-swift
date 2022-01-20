@@ -5,7 +5,7 @@
 [![swift-version](https://img.shields.io/badge/swift-5.5-orange.svg)](https://github.com/apple/swift)
 [![xcode-version](https://img.shields.io/badge/xcode-13.2-blue)](https://developer.apple.com/xcode/)
 
-[Official Website](https://www.hackingwithswift.com/100/1)
+[Official Website](https://www.hackingwithswift.com/100)
 
 Você pode acompanhar meu progresso na [Wiki](https://github.com/giorgiobraz/100-days-of-swift/wiki) deste repositório.
 
